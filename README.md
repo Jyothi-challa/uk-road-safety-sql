@@ -133,21 +133,4 @@ Casualties in fatal collisions skew heavily male (~77%), with the largest concen
 - **London-skewed top-10.** Q4's "top 10 by collision count" is dominated by London boroughs because London has the highest traffic volume — not necessarily the most dangerous roads. A per-capita or per-vehicle-mile normalisation would give a fairer comparison.
 - **Joins.** Tables joined on `collision_index` + `collision_ref_no`. Casualty- and vehicle-level rows fan out from each collision, so `COUNT(*)` in joined queries counts casualties or vehicles, not collisions.
 
----
 
-## Files in this repo
-
-| File | Purpose |
-|------|---------|
-| `projectsql.sql` | All eight queries, commented per question |
-| `results.xlsx` | Query results — one sheet per question |
-| `README.md` | This file |
-
----
-
-## What I'd do next
-
-1. **Load the Contributory Factors file** and replace the night-time proxy in Q6 with a direct drink-related flag.
-2. **Translate ONS district codes** to local-authority names using a lookup table (or `local_authority_district` text column), so Q4's findings are presentation-ready without manual decoding.
-3. **Normalise Q4** by population or vehicle miles travelled, so the ranking reflects real risk rather than raw traffic volume.
-4. **Visualise** the headline findings (vehicle-type fatal rates, hour-of-day curve, weekend-night comparison) as a small Power BI dashboard.
